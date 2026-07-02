@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABC İnşaat</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+    color:#333;
+}
+
+header{
+    background:#222;
+    color:#fff;
+    padding:20px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+header h1{
+    color:#f5b301;
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    margin-left:20px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#f5b301;
+}
+
+.hero{
+    height:80vh;
+    background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80") center/cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:#fff;
+}
+
+.hero h2{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:20px;
+}
+
+section{
+    padding:70px 10%;
+}
+
+section h2{
+    text-align:center;
+    margin-bottom:30px;
+    color:#222;
+}
+
+.about p{
+    text-align:center;
+    line-height:1.8;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#fff;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    text-align:center;
+}
+
+.card h3{
+    color:#f5b301;
+    margin-bottom:10px;
+}
+
+.stats{
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    background:#222;
+    color:#fff;
+    padding:50px 20px;
+}
+
+.stat h2{
+    color:#f5b301;
+    font-size:40px;
+}
+
+.contact{
+    text-align:center;
+}
+
+.contact p{
+    margin:10px 0;
+}
+
+footer{
+    background:#111;
+    color:#fff;
+    text-align:center;
+    padding:20px;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+<h1>ABC İNŞAAT</h1>
+
+<nav>
+<a href="#">Anasayfa</a>
+<a href="#">Hakkımızda</a>
+<a href="#">Hizmetler</a>
+<a href="#">Projeler</a>
+<a href="#">İletişim</a>
+</nav>
+</header>
+
+<section class="hero">
+<div>
+<h2>Güvenle Geleceği İnşa Ediyoruz</h2>
+<p>Modern mimari • Kaliteli işçilik • Zamanında teslim</p>
+</div>
+</section>
+
+<section class="about">
+<h2>Hakkımızda</h2>
+
+<p>
+ABC İnşaat olarak konut, villa, iş merkezi ve ticari yapı projelerinde
+yüksek kalite standartlarıyla hizmet vermekteyiz.
+Deneyimli mühendis kadromuz ve profesyonel ekibimizle güvenli,
+estetik ve uzun ömürlü yapılar inşa ediyoruz.
+</p>
+</section>
+
+<section>
+
+<h2>Hizmetlerimiz</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>🏢 Konut Projeleri</h3>
+<p>Modern yaşam alanları tasarlıyor ve inşa ediyoruz.</p>
+</div>
+
+<div class="card">
+<h3>🏗 Ticari Yapılar</h3>
+<p>İş merkezleri, ofisler ve ticari projeler geliştiriyoruz.</p>
+</div>
+
+<div class="card">
+<h3>🏡 Villa İnşaatı</h3>
+<p>Size özel lüks ve modern villa projeleri hazırlıyoruz.</p>
+</div>
+
+<div class="card">
+<h3>🔨 Tadilat</h3>
+<p>Ev, ofis ve iş yerleri için profesyonel renovasyon hizmeti.</p>
+</div>
+
+</div>
+
+</section>
+
+<div class="stats">
+
+<div class="stat">
+<h2>250+</h2>
+<p>Tamamlanan Proje</p>
+</div>
+
+<div class="stat">
+<h2>15+</h2>
+<p>Yıllık Deneyim</p>
+</div>
+
+<div class="stat">
+<h2>100%</h2>
+<p>Müşteri Memnuniyeti</p>
+</div>
+
+<div class="stat">
+<h2>50+</h2>
+<p>Uzman Personel</p>
+</div>
+
+</div>
+
+<section class="contact">
+
+<h2>İletişim</h2>
+
+<p>📍 İstanbul / Türkiye</p>
+<p>📞 0555 555 55 55</p>
+<p>✉ info@abcinsaat.com</p>
+
+</section>
+
+<footer>
+© 2026 ABC İnşaat | Tüm Hakları Saklıdır.
+</footer>
+
+</body>
+</html>

@@ -1,232 +1,761 @@
-<!DOCTYPE html>
-<html lang="tr">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SAFA Yapı İnşaat</title>
+
+<title>SAFA Yapı İnşaat | Kırşehir</title>
+
+<meta name="description" content="SAFA Yapı İnşaat - Konut, Villa ve Ticari Yapılar">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
-    background:#f5f5f5;
-    color:#333;
+background:#f5f7fb;
+color:#333;
+overflow-x:hidden;
+}
+
+::-webkit-scrollbar{
+width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+background:#0077ff;
+border-radius:20px;
 }
 
 header{
-    background:#222;
-    color:#fff;
-    padding:20px 60px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+
+position:fixed;
+top:0;
+left:0;
+
+width:100%;
+
+padding:20px 7%;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+background:rgba(0,93,164,.85);
+
+backdrop-filter:blur(14px);
+
+z-index:999;
+
+transition:.35s;
+
 }
 
-header h1{
-    color:#f5b301;
+header.active{
+
+padding:12px 7%;
+
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+
+}
+
+.logo{
+
+display:flex;
+align-items:center;
+gap:15px;
+
+}
+
+.logo img{
+
+width:70px;
+transition:.3s;
+
+}
+
+.logo h1{
+
+font-size:32px;
+color:#fff;
+
+}
+
+nav{
+
+display:flex;
+gap:30px;
+
 }
 
 nav a{
-    color:#fff;
-    text-decoration:none;
-    margin-left:20px;
-    transition:.3s;
+
+color:white;
+text-decoration:none;
+font-weight:500;
+position:relative;
+
 }
 
-nav a:hover{
-    color:#f5b301;
+nav a::after{
+
+content:'';
+position:absolute;
+bottom:-6px;
+left:0;
+
+width:0;
+height:2px;
+
+background:white;
+
+transition:.3s;
+
+}
+
+nav a:hover::after{
+
+width:100%;
+
 }
 
 .hero{
-    height:80vh;
-    background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-    url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80") center/cover;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    color:#fff;
+
+height:100vh;
+
+background:
+
+linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=2000&q=80");
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+
+color:white;
+
+padding:20px;
+
 }
 
 .hero h2{
-    font-style: italic;
-    font-size:48px;
-    margin-bottom:15px;
+
+font-family: Harlow Solid;
+font-style: italic;
+font-size:68px;
+font-weight:800;
+margin-bottom:15px;
+
+animation:fadeUp 1s;
+
 }
 
 .hero p{
-    font-size:20px;
+
+font-size:22px;
+
+animation:fadeUp 1.4s;
+
+}
+
+.hero-buttons{
+
+margin-top:35px;
+
+display:flex;
+
+justify-content:center;
+
+gap:15px;
+
+flex-wrap:wrap;
+
+}
+
+.btn{
+
+padding:15px 30px;
+
+border-radius:40px;
+
+text-decoration:none;
+
+font-weight:600;
+
+transition:.35s;
+
+}
+
+.primary{
+
+background:#0077ff;
+color:white;
+
+}
+
+.secondary{
+
+background:white;
+color:#0077ff;
+
+}
+
+.btn:hover{
+
+transform:translateY(-5px);
+
 }
 
 section{
-    padding:70px 10%;
+
+padding:100px 8%;
+
 }
 
-section h2{
-    text-align:center;
-    margin-bottom:30px;
-    color:#222;
-}
+h2{
 
-.about p{
-    text-align:center;
-    line-height:1.8;
+font-size:42px;
+
+text-align:center;
+
+margin-bottom:45px;
+
+color:#0077ff;
+
 }
 
 .cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:30px;
+
 }
 
 .card{
-    background:#fff;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
-    text-align:center;
+
+background:white;
+
+border-radius:20px;
+
+padding:35px;
+
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+transition:.4s;
+
 }
 
-.card h3{
-    color:#f5b301;
-    margin-bottom:10px;
+.card:hover{
+
+transform:translateY(-12px);
+
+}
+
+.card i{
+
+font-size:42px;
+
+color:#0077ff;
+
+margin-bottom:20px;
+
 }
 
 .stats{
-    display:flex;
-    justify-content:space-around;
-    flex-wrap:wrap;
-    background:#222;
-    color:#fff;
-    padding:50px 20px;
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:20px;
+
+background:#0d1c2d;
+
+color:white;
+
+}
+
+.stat{
+
+padding:50px;
+text-align:center;
+
 }
 
 .stat h2{
-    color:#f5b301;
-    font-size:40px;
+
+color:white;
+
+font-size:52px;
+
 }
 
-.contact{
-    text-align:center;
+.whatsapp{
+
+position:fixed;
+
+left:20px;
+
+bottom:20px;
+
+width:60px;
+
+height:60px;
+
+background:#25D366;
+
+border-radius:50%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:30px;
+
+color:white;
+
+text-decoration:none;
+
+z-index:999;
+
+box-shadow:0 10px 25px rgba(0,0,0,.25);
+
 }
 
-.contact p{
-    margin:10px 0;
+.top{
+
+position:fixed;
+
+right:20px;
+
+bottom:20px;
+
+width:60px;
+
+height:60px;
+
+background:#0077ff;
+
+border-radius:50%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+color:white;
+
+font-size:26px;
+
+text-decoration:none;
+
+opacity:0;
+
+pointer-events:none;
+
+transition:.4s;
+
 }
 
-footer{
-    background:#111;
-    color:#fff;
-    text-align:center;
-    padding:20px;
+.top.show{
+
+opacity:1;
+pointer-events:auto;
+
 }
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+transform:translateY(60px);
+
+}
+
+to{
+
+opacity:1;
+transform:none;
+
+}
+
+}
+
+@media(max-width:768px){
+
+header{
+
+flex-direction:column;
+
+gap:15px;
+
+padding:15px;
+
+}
+
+.logo h1{
+
+font-size:24px;
+
+}
+
+.hero h2{
+
+font-size:38px;
+
+}
+
+.hero p{
+
+font-size:17px;
+
+}
+
+.stats{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+nav{
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:15px;
+
+}
+
+}
+
 </style>
 
 </head>
-<body>
 
-<header>
-<h1>SAFA Yapı İnşaat</h1>
+<header id="header">
 
-<nav>
-<a href="#">Anasayfa</a>
-<a href="#">Hakkımızda</a>
-<a href="#">Hizmetler</a>
-<a href="#">Projeler</a>
-<a href="#">İletişim</a>
+<div class="logo">
+    <img src="Logo.jpeg" alt="Logo">
+    <h1>SAFA Yapı İnşaat</h1>
+</div>
+
+<nav id="menu">
+    <a href="#about">Hakkımızda</a>
+    <a href="#services">Hizmetler</a>
+    <a href="/projects">Projeler</a>
+    <a href="#stats">İstatistikler</a>
+    <a href="#contact">İletişim</a>
 </nav>
+
 </header>
 
 <section class="hero">
-<div>
-<h2>Hayalleriniz Projemiz Olsun</h2>
-<p>Modern mimari • Kaliteli işçilik • Zamanında teslim</p>
-</div>
-</section>
 
-<section class="about">
-<h2>Hakkımızda</h2>
+<div>
+
+<h2>Hayalleriniz Projemiz Olsun</h2>
 
 <p>
-ABC İnşaat olarak konut, villa, iş merkezi ve ticari yapı projelerinde
-yüksek kalite standartlarıyla hizmet vermekteyiz.
-Deneyimli mühendis kadromuz ve profesyonel ekibimizle güvenli,
-estetik ve uzun ömürlü yapılar inşa ediyoruz.
+Modern Mimari • Güvenli Yapılar • Kaliteli İşçilik
 </p>
+
+<div class="hero-buttons">
+
+<a href="tel:+905428435078" class="btn primary">
+<i class="fa-solid fa-phone"></i>
+Hemen Ara
+</a>
+
+<a target="_blank"
+href="https://wa.me/905428435078"
+class="btn secondary">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+WhatsApp
+
+</a>
+
+</div>
+
+</div>
+
 </section>
 
-<section>
+<section id="about">
+
+<h2>Hakkımızda</h2>
+
+<p style="max-width:900px;margin:auto;text-align:center;line-height:2">
+
+2010 yılında Kırşehir'de çıktığımız bu yolda, Safa Yapı İnşaat olarak konut, villa, iş merkezi ve ticari yapı projelerinde yüksek kalite standartlarıyla hizmet vermekteyiz. Deneyimli mimar, mühendis kadromuz ve profesyonel ekibimizle güvenli, estetik ve uzun ömürlü yapılar inşa ediyoruz.
+</p>
+
+</section>
+
+<section id="services">
 
 <h2>Hizmetlerimiz</h2>
 
 <div class="cards">
 
 <div class="card">
-<h3>🏢 Konut Projeleri</h3>
-<p>Modern yaşam alanları tasarlıyor ve inşa ediyoruz.</p>
+
+<i class="fa-solid fa-building"></i>
+
+<h3>Konut Projeleri</h3>
+
+<p>
+
+Modern yaşam alanları tasarlıyor,
+depreme dayanıklı yapılar inşa ediyoruz.
+
+</p>
+
 </div>
 
 <div class="card">
-<h3>🏗 Ticari Yapılar</h3>
-<p>İş merkezleri, ofisler ve ticari projeler geliştiriyoruz.</p>
+
+<i class="fa-solid fa-house"></i>
+
+<h3>Villa İnşaatı</h3>
+
+<p>
+
+Size özel mimariyle hayalinizdeki villayı
+gerçeğe dönüştürüyoruz.
+
+</p>
+
 </div>
 
 <div class="card">
-<h3>🏡 Villa İnşaatı</h3>
-<p>Size özel lüks ve modern villa projeleri hazırlıyoruz.</p>
+
+<i class="fa-solid fa-city"></i>
+
+<h3>Ticari Yapılar</h3>
+
+<p>
+
+İş merkezleri,
+ofisler,
+fabrika ve mağaza projeleri.
+
+</p>
+
 </div>
 
 <div class="card">
-<h3>🔨 Tadilat</h3>
-<p>Ev, ofis ve iş yerleri için profesyonel renovasyon hizmeti.</p>
+
+<i class="fa-solid fa-ruler-combined"></i>
+
+<h3>Mimari Tasarım</h3>
+
+<p>
+
+3D modelleme,
+projelendirme,
+ruhsat süreçleri.
+
+</p>
+
 </div>
 
 </div>
 
 </section>
 
-<div class="stats">
+</div>
+
+</section>
+
+<section id="stats" class="stats">
 
 <div class="stat">
-<h2>250+</h2>
+<h2 class="counter" data-target="15">0</h2>
 <p>Tamamlanan Proje</p>
 </div>
 
 <div class="stat">
-<h2>15+</h2>
+<h2 class="counter" data-target="16">0</h2>
 <p>Yıllık Deneyim</p>
 </div>
 
 <div class="stat">
-<h2>100%</h2>
-<p>Müşteri Memnuniyeti</p>
-</div>
-
-<div class="stat">
-<h2>50+</h2>
+<h2 class="counter" data-target="50">0</h2>
 <p>Uzman Personel</p>
 </div>
 
+<div class="stat">
+<h2 class="counter" data-target="100">0</h2>
+<p>Müşteri Memnuniyeti</p>
 </div>
-
-<section class="contact">
-
-<h2>İletişim</h2>
-
-<p>📍 İstanbul / Türkiye</p>
-<p>📞 0555 555 55 55</p>
-<p>✉ info@abcinsaat.com</p>
 
 </section>
 
-<footer>
-© 2026 ABC İnşaat | Tüm Hakları Saklıdır.
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2>İletişim</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3><i class="fa-solid fa-location-dot"></i> Adres</h3>
+
+<p>Kırşehir / Türkiye</p>
+
+</div>
+
+<div class="card">
+
+<h3><i class="fa-solid fa-phone"></i> Telefon</h3>
+
+<p><a href="tel:+905428435078">0542 843 50 78</a></p>
+
+</div>
+
+<div class="card">
+
+<h3><i class="fa-solid fa-envelope"></i> Mail</h3>
+
+<p>safayapiinsaat@gmail.com</p>
+
+</div>
+
+</div>
+
+<div style="margin-top:50px;">
+
+<iframe
+src="https://www.google.com/maps?q=Kırşehir&output=embed"
+width="100%"
+height="400"
+style="border:0;border-radius:20px;"
+loading="lazy">
+</iframe>
+
+</div>
+
+</section>
+
+<footer style="background:#111;color:#fff;padding:50px;text-align:center;">
+
+<h3>SAFA Yapı İnşaat</h3>
+
+<p style="margin:20px 0;">
+Kalite • Güven • Zamanında Teslim
+</p>
+
+<div style="font-size:28px;display:flex;justify-content:center;gap:25px;">
+
+<a href="#" style="color:white;"><i class="fab fa-facebook"></i></a>
+
+<a href="#" style="color:white;"><i class="fab fa-instagram"></i></a>
+
+<a href="https://wa.me/905428435078" style="color:white;"><i class="fab fa-whatsapp"></i></a>
+
+</div>
+
+<p style="margin-top:30px;">
+© 2026 SAFA Yapı İnşaat - Tüm Hakları Saklıdır.
+</p>
+
 </footer>
 
-</body>
-</html>
+<a class="whatsapp" href="https://wa.me/905428435078">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<a class="top" id="topBtn" href="#">
+<i class="fa-solid fa-arrow-up"></i>
+</a>
+
+<script>
+
+const header=document.querySelector("header");
+
+window.addEventListener("scroll",()=>{
+
+header.classList.toggle("active",window.scrollY>80);
+
+document.getElementById("topBtn").classList.toggle("show",window.scrollY>300);
+
+});
+
+const counters=document.querySelectorAll(".counter");
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+let counter=entry.target;
+
+let target=+counter.dataset.target;
+
+let count=0;
+
+let speed=target/100;
+
+let update=()=>{
+
+count+=speed;
+
+if(count<target){
+
+counter.innerText=Math.floor(count);
+
+requestAnimationFrame(update);
+
+}else{
+
+counter.innerText=target+(target==100?"%":"+");
+
+}
+
+};
+
+update();
+
+observer.unobserve(counter);
+
+}
+
+});
+
+});
+
+counters.forEach(c=>observer.observe(c));
+
+</script>

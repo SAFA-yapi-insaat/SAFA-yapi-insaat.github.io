@@ -8,9 +8,9 @@
     "cover": "/galeri/logo.png",
     "description": "örnek.",
     "images": [
-      "galeri/logo.png",
-      "galeri/logo.png",
-      "galeri/logo.png"
+      "/galeri/logo.png",
+      "/galeri/logo.png",
+      "/galeri/logo.png"
     ]
   }
 ]

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -21,18 +20,25 @@ box-sizing:border-box;
 font-family:Poppins,sans-serif;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
+
 background:#0f172a;
-color:white;
+color:#fff;
+
 }
 
 .hero{
 
 width:100%;
-height:55vh;
+height:60vh;
+
+position:relative;
 
 overflow:hidden;
-position:relative;
 
 }
 
@@ -47,9 +53,10 @@ object-fit:cover;
 .overlay{
 
 position:absolute;
+
 inset:0;
 
-background:linear-gradient(to top,#0f172a 5%,rgba(0,0,0,.15));
+background:linear-gradient(to top,#0f172a 0%,rgba(15,23,42,.15));
 
 }
 
@@ -58,25 +65,29 @@ background:linear-gradient(to top,#0f172a 5%,rgba(0,0,0,.15));
 width:min(1200px,92%);
 margin:auto;
 
-padding:50px 0;
+padding:60px 0;
 
 }
 
 .back{
 
-display:inline-block;
+display:inline-flex;
 
-margin-bottom:30px;
+align-items:center;
 
-color:white;
+gap:10px;
 
 text-decoration:none;
 
 background:#2563eb;
 
-padding:12px 22px;
+color:white;
+
+padding:13px 22px;
 
 border-radius:12px;
+
+margin-bottom:35px;
 
 transition:.3s;
 
@@ -86,23 +97,33 @@ transition:.3s;
 
 background:#1d4ed8;
 
+transform:translateY(-2px);
+
 }
 
 .title{
 
-font-size:42px;
+font-size:44px;
 
-margin-bottom:12px;
+font-weight:700;
+
+margin-bottom:15px;
 
 }
 
 .meta{
 
-color:#c7ced9;
+display:flex;
 
-font-size:17px;
+flex-wrap:wrap;
+
+gap:18px;
 
 margin-bottom:35px;
+
+color:#c7ced9;
+
+font-size:16px;
 
 }
 
@@ -112,7 +133,7 @@ font-size:18px;
 
 line-height:1.9;
 
-color:#e8e8e8;
+color:#e4e4e4;
 
 margin-bottom:60px;
 
@@ -131,15 +152,18 @@ gap:20px;
 .gallery img{
 
 width:100%;
+
 height:260px;
 
 object-fit:cover;
 
-border-radius:16px;
+border-radius:18px;
 
 cursor:pointer;
 
 transition:.35s;
+
+box-shadow:0 10px 30px rgba(0,0,0,.25);
 
 }
 
@@ -159,45 +183,23 @@ font-size:22px;
 
 }
 
-@media(max-width:768px){
-
-.hero{
-
-height:300px;
-
-}
-
-.title{
-
-font-size:32px;
-
-}
-
-.gallery{
-
-grid-template-columns:1fr;
-
-}
-
-}
-
-/* LIGHTBOX */
-
 .lightbox{
 
 position:fixed;
-inset:0;
 
-background:rgba(0,0,0,.95);
+inset:0;
 
 display:none;
 
 justify-content:center;
+
 align-items:center;
+
+background:rgba(0,0,0,.94);
 
 z-index:9999;
 
-padding:40px;
+padding:30px;
 
 }
 
@@ -210,9 +212,10 @@ display:flex;
 .lightbox img{
 
 max-width:90%;
+
 max-height:90%;
 
-border-radius:14px;
+border-radius:16px;
 
 object-fit:contain;
 
@@ -223,9 +226,10 @@ object-fit:contain;
 position:absolute;
 
 top:25px;
+
 right:35px;
 
-font-size:42px;
+font-size:48px;
 
 cursor:pointer;
 
@@ -243,9 +247,9 @@ transform:translateY(-50%);
 
 font-size:55px;
 
-cursor:pointer;
-
 padding:15px;
+
+cursor:pointer;
 
 user-select:none;
 
@@ -263,9 +267,31 @@ right:30px;
 
 }
 
-.gallery img{
+@media(max-width:768px){
 
-cursor:pointer;
+.hero{
+
+height:320px;
+
+}
+
+.title{
+
+font-size:32px;
+
+}
+
+.gallery{
+
+grid-template-columns:1fr;
+
+}
+
+.nav{
+
+font-size:42px;
+
+}
 
 }
 
@@ -287,130 +313,242 @@ Proje yükleniyor...
 
 <script>
 
-const app = document.getElementById("app");
+const app=document.getElementById("app");
 
-// URL'deki id'yi al
-const id = new URLSearchParams(window.location.search).get("id");
+const id=new URLSearchParams(location.search).get("id");
 
-// JSON'u oku
 fetch("projects.json")
-.then(res => res.json())
-.then(projects => {
 
-    // Projeyi bul
-    const project = projects.find(p => String(p.id) === String(id));
+.then(r=>r.json())
 
-    // Proje bulunamadıysa
-    if(!project){
-        app.innerHTML = `
-            <div class="container">
-                <a href="projeler.html" class="back">← Projelere Dön</a>
+.then(projects=>{
 
-                <h1>Proje Bulunamadı</h1>
+const project=projects.find(p=>String(p.id)===String(id));
 
-                <p>Aradığınız proje mevcut değil.</p>
-            </div>
-        `;
-        app.innerHTML = `
+if(!project){
 
-    ...
+app.innerHTML=`
 
-    <div class="gallery">
-        ${galleryHTML}
-    </div>
+<div class="container">
 
-    <div class="lightbox" id="lightbox">
+<a href="projeler.html" class="back">
 
-        <div class="close">&times;</div>
+← Projelere Dön
 
-        <div class="nav prev">&#10094;</div>
+</a>
 
-        <img id="lightboxImage">
+<h1>Proje Bulunamadı</h1>
 
-        <div class="nav next">&#10095;</div>
+<p>Aradığınız proje mevcut değil.</p>
 
-    </div>
+</div>
 
 `;
-        return;
-    }
 
-    // Galeri HTML'i
-    let galleryHTML = "";
+return;
 
-    project.images.forEach(image => {
-        galleryHTML += `
-            <img src="${image}" alt="${project.title}">
-        `;
-    });
+}
 
-    // Sayfayı oluştur
-    app.innerHTML = `
+let galleryHTML="";
 
-        <div class="hero">
+project.images.forEach(image=>{
 
-            <img src="${project.cover}" alt="${project.title}">
+galleryHTML+=`
 
-            <div class="overlay"></div>
+<img src="${image}" alt="${project.title}">
 
-        </div>
+`;
 
-        <div class="container">
+});
 
-            <a href="projeler.html" class="back">
+app.innerHTML=`
 
-                ← Projelere Dön
+<div class="hero">
 
-            </a>
+<img src="${project.cover}" alt="${project.title}">
 
-            <h1 class="title">
+<div class="overlay"></div>
 
-                ${project.title}
+</div>
 
-            </h1>
+<div class="container">
 
-            <div class="meta">
+<a href="projeler.html" class="back">
 
-                📍 ${project.city}
-                &nbsp;&nbsp;•
-                &nbsp;&nbsp;${project.year}
-                &nbsp;&nbsp;•
-                &nbsp;&nbsp;${project.category}
+← Projelere Dön
 
-            </div>
+</a>
 
-            <div class="description">
+<h1 class="title">
 
-                ${project.description}
+${project.title}
 
-            </div>
+</h1>
 
-            <div class="gallery">
+<div class="meta">
 
-                ${galleryHTML}
+<span>📍 ${project.city}</span>
 
-            </div>
+<span>📅 ${project.year}</span>
 
-        </div>
+<span>🏗 ${project.category}</span>
 
-    `;
+</div>
+
+<div class="description">
+
+${project.description}
+
+</div>
+
+<div class="gallery">
+
+${galleryHTML}
+
+</div>
+
+</div>
+
+<div class="lightbox" id="lightbox">
+
+<div class="close">&times;</div>
+
+<div class="nav prev">&#10094;</div>
+
+<img id="lightboxImage">
+
+<div class="nav next">&#10095;</div>
+
+</div>
+`;
+
+const images=[...document.querySelectorAll(".gallery img")];
+
+const lightbox=document.getElementById("lightbox");
+
+const lightboxImage=document.getElementById("lightboxImage");
+
+const close=document.querySelector(".close");
+
+const prev=document.querySelector(".prev");
+
+const next=document.querySelector(".next");
+
+let current=0;
+
+function show(index){
+
+current=index;
+
+lightboxImage.src=images[current].src;
+
+}
+
+images.forEach((img,index)=>{
+
+img.addEventListener("click",()=>{
+
+lightbox.classList.add("active");
+
+show(index);
+
+});
+
+});
+
+close.onclick=()=>{
+
+lightbox.classList.remove("active");
+
+};
+
+lightbox.onclick=e=>{
+
+if(e.target===lightbox){
+
+lightbox.classList.remove("active");
+
+}
+
+};
+
+prev.onclick=()=>{
+
+current--;
+
+if(current<0){
+
+current=images.length-1;
+
+}
+
+show(current);
+
+};
+
+next.onclick=()=>{
+
+current++;
+
+if(current>=images.length){
+
+current=0;
+
+}
+
+show(current);
+
+};
+
+document.addEventListener("keydown",e=>{
+
+if(!lightbox.classList.contains("active")) return;
+
+if(e.key==="Escape"){
+
+lightbox.classList.remove("active");
+
+}
+
+if(e.key==="ArrowRight"){
+
+next.click();
+
+}
+
+if(e.key==="ArrowLeft"){
+
+prev.click();
+
+}
+
+});
 
 })
-.catch(err => {
 
-    console.error(err);
+.catch(()=>{
 
-    app.innerHTML = `
-        <div class="container">
+app.innerHTML=`
 
-            <h2>projects.json okunamadı.</h2>
+<div class="container">
 
-        </div>
-    `;
+<h1>Hata</h1>
+
+<p>projects.json dosyası okunamadı.</p>
+
+<a href="projeler.html" class="back">
+
+← Projelere Dön
+
+</a>
+
+</div>
+
+`;
 
 });
 
 </script>
-  
+
 </body>
 </html>

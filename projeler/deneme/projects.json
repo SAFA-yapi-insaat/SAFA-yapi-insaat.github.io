@@ -1,16 +1,16 @@
 [
   {
     "id": 1,
-    "title": "Apartman",
+    "title": "örnek",
     "city": "Kırşehir",
     "year": "2026",
-    "category": "Apartman",
+    "category": "örnek",
     "cover": "/galeri/logo.png",
-    "description": "Anahtar teslim modern Apartman inşaatı.",
+    "description": "örnek.",
     "images": [
-      "galeri/Apartman1-1.jpg",
-      "galeri/Apartman1-2.jpg",
-      "galeri/Apartman1-3.jpg"
+      "galeri/logo.png",
+      "galeri/logo.png",
+      "galeri/logo.png"
     ]
   }
 ]

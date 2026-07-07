@@ -311,6 +311,27 @@ fetch("projects.json")
                 <p>Aradığınız proje mevcut değil.</p>
             </div>
         `;
+        app.innerHTML = `
+
+    ...
+
+    <div class="gallery">
+        ${galleryHTML}
+    </div>
+
+    <div class="lightbox" id="lightbox">
+
+        <div class="close">&times;</div>
+
+        <div class="nav prev">&#10094;</div>
+
+        <img id="lightboxImage">
+
+        <div class="nav next">&#10095;</div>
+
+    </div>
+
+`;
         return;
     }
 
